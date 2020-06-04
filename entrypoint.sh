@@ -15,6 +15,7 @@ if [ ! -e /var/www/html/index.php ];  then
 	cp /autoconfig.php /var/www/html/system/data/
 	chown -R ${APACHE_RUN_USER}:${APACHE_RUN_GROUP} /var/www/html
 	chown ${APACHE_RUN_USER}:${APACHE_RUN_GROUP} /user-files
+	chown ${APACHE_RUN_USER}:${APACHE_RUN_GROUP} /files
 	mysql_host="${FR_DB_HOST:-mysql}"
 	mysql_port="${FR_DB_PORT:-3306}"
 	/wait-for-it.sh $mysql_host:$mysql_port -t 120 -- /import-db.sh
